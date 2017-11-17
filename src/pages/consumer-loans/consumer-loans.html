@@ -1,0 +1,39 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Consumer Loans</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item (click)="gotoServicePage('Personal Loan')">
+      Personal Loan
+    </ion-item>
+    <ion-item (click)="gotoServicePage('Business Loan')">
+      Business Loan
+    </ion-item>
+    <ion-item (click)="gotoServicePage('Home Loan')">
+      Home Loan
+    </ion-item>
+    <ion-item (click)="gotoServicePage('Loan Against Property')">
+      Loan Against Property
+    </ion-item>
+    <ion-item (click)="gotoServicePage('Commercial Purchase')">
+      Commercial Purchase
+    </ion-item>
+    <ion-item (click)="gotoServicePage('Equipment Finance')">
+      Equipment Finance
+    </ion-item>
+    <ion-item (click)="gotoServicePage('Working Capital Loan')">
+      Working Capital Loan
+    </ion-item>
+    <ion-item (click)="gotoServicePage('Construction Funding')">
+      Construction Funding
+    </ion-item>
+  </ion-list>
+</ion-content>

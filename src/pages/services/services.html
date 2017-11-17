@@ -1,0 +1,29 @@
+
+<ion-header>
+
+  <ion-navbar  color="primary">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>{{subcat}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+        <h1 text-wrap text-center style="color:#606676; font-family:sans-serif">{{data.head}}</h1>  
+        
+    </ion-card-header>
+    <ion-card-content>
+        <img [src]="data.img" padding-bottom>
+        <p text-justify style="letter-spacing: 0.2px;">
+          {{data.desc}}
+        </p>
+    </ion-card-content>
+      
+  </ion-card>
+  
+</ion-content>

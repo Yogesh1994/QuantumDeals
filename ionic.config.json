@@ -1,5 +1,8 @@
 {
   "name": "quantumDeals",
-  "app_id": "",
-  "type": "ionic-angular"
+  "app_id": "ee34a8c2",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
 }

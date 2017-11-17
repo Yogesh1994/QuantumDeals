@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-navbar color="primary">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>
+      <ion-label item-left>Emi Calculator</ion-label>
+    </ion-title>
+    
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+<form [formGroup]="userForm" (ngSubmit)="Onsubmit()">
+<ion-list>
+  
+    <ion-item>
+      <ion-label>Loan Amount</ion-label>
+      <ion-input formControlName="l_amount" step="0.01" type="number"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Rate of Intrest</ion-label>
+      <ion-input step="0.01" formControlName="interst" type="number"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Period(years)</ion-label>
+      <ion-input step="0.01" formControlName="period" type="number"></ion-input>
+    </ion-item>
+  </ion-list>
+  <p item-right text-wrap *ngIf="!userForm.controls.l_amount.valid && userForm.controls.l_amount.dirty">
+      <span>Please Enter Loan Amount</span>
+  </p>  
+  <p item-right text-wrap *ngIf="!userForm.controls.interst.valid && userForm.controls.interst.dirty">
+      <span>Please Enter Intrest Rate</span>
+  </p> 
+  <p item-right text-wrap *ngIf="!userForm.controls.period.valid && userForm.controls.period.dirty">
+      <span>Please Enter Period</span>
+  </p> 
+  
+  <button type="submit" [disabled]="!userForm.valid" full ion-button >Calculate</button>
+</form>  
+
+<div *ngIf="flag==1">
+ <ion-card *ngIf="emi!=''"> 
+<ion-card-header>
+    Your Monthly EMI is 
+  </ion-card-header>
+  <ion-card-content>
+      {{emi | number:"2.2-2"}}
+  </ion-card-content>
+</ion-card>
+<ion-card *ngIf="intrest!=''">
+<ion-card-header>
+   Total Intrest
+  </ion-card-header>
+  <ion-card-content>
+      {{(period*emi)-l_amount | number: "2.2-2"}}
+  </ion-card-content>
+</ion-card>
+<ion-card *ngIf="period!=''">
+<ion-card-header>
+    Total Payment
+   </ion-card-header>
+   <ion-card-content>
+       {{period*emi| number:"2.2-2"}}
+   </ion-card-content>
+ </ion-card>
+
+ <button type="submit" (click)="Details()" full ion-button >Details</button>
+</div>
+</ion-content>

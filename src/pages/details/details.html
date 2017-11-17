@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Details
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+      <ion-row text-center class="head">
+        <ion-col col-3>Month</ion-col>
+        <ion-col col-3>Principle</ion-col>
+        <ion-col col-3>Interest</ion-col>
+        <ion-col col-3>Balance</ion-col>
+      </ion-row>
+      <ion-row text-center class="head1" *ngFor="let detail of detailsArray">
+        <ion-col>{{detail.month}}</ion-col>
+        <ion-col>{{detail.principle}}</ion-col>
+        <ion-col>{{detail.intrest_amount}}</ion-col>
+        <ion-col>{{detail.balance}}</ion-col>
+      </ion-row>  
+    
+    </ion-grid>
+</ion-content>

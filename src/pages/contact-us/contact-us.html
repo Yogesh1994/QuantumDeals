@@ -1,0 +1,105 @@
+
+<ion-header>
+    <ion-navbar no-border-bottom  color="primary">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>
+       Contact Us
+      </ion-title>
+    </ion-navbar>
+  
+    <!--*********** Toolbar with segment ***********-->
+    <ion-toolbar no-border-top color="navbar">
+         <ion-segment  [(ngModel)]="viewType" color="dark">
+        <ion-segment-button value="location">
+         Location
+        </ion-segment-button>
+        <ion-segment-button value="sendMessage">
+          Send Message
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <!--*********** Location view ***********-->
+    <div *ngIf="viewType==='location'">
+        <ion-card>
+            <ion-card-header color="light" style="background-color:#FF421F">
+               <b> Quantum Deals</b>
+            </ion-card-header>  
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d941.8226206621616!2d72.854715!3d19.226168!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xdca50f11b7d1b67b!2sMoksh+Plaza!5e0!3m2!1sen!2sin!4v1510638078043"
+            width="100%" height="250px" frameborder="0" style="border:0" allowfullscreen></iframe>
+              <ion-fab right top>
+                <button ion-fab>
+                  <ion-icon name="pin"></ion-icon>
+                </button>
+              </ion-fab>
+            
+              <ion-item text-wrap>
+                <ion-icon name="pin" item-start large></ion-icon>
+                <h2>Contact Address</h2>
+                <p>502, Jalpa Divine, Jambli Galli, Borivali West, Mumbai 400092 </p>
+              </ion-item>
+            
+              <ion-item>
+                <ion-icon ios="ios-call" md="md-call" item-left large></ion-icon>
+                <h2> Phone No. & Email</h2>
+                <p> No.: <a href="tel:8779490945">+91 8779 490945</a></p>
+                <p>Email:  info@quantumdeals.in </p>
+              </ion-item>    
+            </ion-card>
+  
+      
+    </div>
+  
+    <!--*********** Send Message View  ***********-->
+    <div *ngIf="viewType==='sendMessage'">
+      <form [formGroup]="userform" (ngSubmit)="onSubmit()">
+        <div class="login-container">
+          <ion-list>
+            <ion-item>
+              <ion-label stacked style="color:#222;float:left">
+                <span style="float:left;">Your Name</span>
+              </ion-label>
+              <ion-input type="text" formControlName="name" placeholder="eg. Jignesh Mistry"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label stacked style="color:#222;float:left">
+                <span style="float:left;">Your Email</span>
+              </ion-label>
+              <ion-input type="email" formControlName="email" placeholder="eg. abc@example.com"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label stacked style="color:#222;float:left">
+                <span style="float:left;">Your Mobile</span>
+              </ion-label>
+              <ion-input type="number" formControlName="mobile" placeholder="eg. +91990909090"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label stacked style="color:#222;float:left">
+                <span style="float:left;">Subject</span>
+              </ion-label>
+              <ion-input type="text" formControlName="subject" placeholder="Subject For Contact"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label stacked style="color:#222; float:left;">
+                <span style="float:left;">Your Message</span>
+              </ion-label>
+              <ion-textarea formControlName="message" name="comment" placeholder="Your Message..."></ion-textarea>
+            </ion-item><br>
+         
+            <ion-toolbar >
+              <button  type="submit" [disabled]="!userform.valid" ion-button full icon-left  >
+                
+                Submit
+              </button>
+            </ion-toolbar>
+          </ion-list>
+        </div>
+      </form>
+    </div>
+  
+  
+  </ion-content>
+  
